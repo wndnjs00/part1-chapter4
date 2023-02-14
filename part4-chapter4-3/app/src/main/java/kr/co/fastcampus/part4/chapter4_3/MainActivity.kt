@@ -38,7 +38,7 @@ fun ConstraintLayoutEx() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
         // 단계 2: createRefs()를 이용해서 아래 박스들의 레퍼런스를 가져옵시다.
         // createRefs는 여러개의 레퍼런스를 리턴하니 destruction으로 분해합시다.
-        // red, megenta, green, yellow 박스가 있습니다.
+        // red, magenta, green, yellow 박스가 있습니다.
 
         Box(
             // 단계 3: constraintsAs 모디파이어를 추가하고 레퍼런스를 전달합시다.
