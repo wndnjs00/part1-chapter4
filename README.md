@@ -32,3 +32,21 @@ Part4 Chapter4의 예제와 실습을 모두 담고 있습니다.
 
  * 단계 8: 옐로 박스를 마젠타 박스 오른쪽 대각선 아래에 위치해봅시다.
     linkTo를 쓰고 인자로 parent 대신 그린 박스의 레퍼런스를 사용합시다.
+
+## Compose ConstraintLayout ConstraintSet 실습코드 (part4-chapter4-4)
+
+[part4-chapter4-4](part4-chapter4-4) 디렉토리를 Android Studio에서 오픈하세요.
+
+ * 단계 1: createRefFor로 레드, 마젠타, 그린, 옐로 박스를 위한 레퍼런스를 만듭니다.
+    파라미터 id로 레퍼런스의 이름을 적어 줍시다. eg. redBox
+
+ * 단계 2: `constrain`을 열고 만들었던 레퍼런스를 인자로 넣읍시다.
+    레드, 마젠타, 그린, 옐로 박스 레퍼런스에 대해 `constrain`을 적읍시다.
+    후행 람다의 내용은 기존에 `constrainAs`에 적어둔 것을 참고합니다.
+
+ * 단계 3: `ConstraintLayout`내에서 생성한 레퍼런스와 `constrainAs` 모디파이어를 삭제합니다.
+
+ * 단계 4: Box마다 `layoutId`를 설정합니다.
+    파라미터는 `ConstraintSet`에 만든 레퍼런스의 id로 적어줍니다.
+
+ * 단계 5: ConstraintLayout의 첫 인자로 ConstraintSet을 전달합니다.
