@@ -71,7 +71,7 @@ fun ConstraintLayoutEx() {
         // 키워드 파라미터를 추가합시다.
         // `ChainStyle.Packed`,`ChainStyle.Spread`,
         // `ChainStyle.SpreadInside`등을 지정해봅시다.
-gi
+
         // 단계 3: 세 박스의 top을 parent.top에 연결하고 각각
         // 다른 마진을 줍시다.
 
