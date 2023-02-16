@@ -33,7 +33,7 @@ Part4 Chapter4의 예제와 실습을 모두 담고 있습니다.
  * 단계 8: 옐로 박스를 마젠타 박스 오른쪽 대각선 아래에 위치해봅시다.
     linkTo를 쓰고 인자로 parent 대신 그린 박스의 레퍼런스를 사용합시다.
 
-## Compose ConstraintLayout ConstraintSet 실습코드 (part4-chapter4-4)
+## Compose ConstraintLayout (ConstraintSet) 실습코드 (part4-chapter4-4)
 
 [part4-chapter4-4](part4-chapter4-4) 디렉토리를 Android Studio에서 오픈하세요.
 
@@ -50,3 +50,27 @@ Part4 Chapter4의 예제와 실습을 모두 담고 있습니다.
     파라미터는 `ConstraintSet`에 만든 레퍼런스의 id로 적어줍니다.
 
  * 단계 5: ConstraintLayout의 첫 인자로 ConstraintSet을 전달합니다.
+
+## Compose ConstraintLayout (Chain, Barrier) 실습코드 (part4-chapter4-5)
+
+[part4-chapter4-5](part4-chapter4-5) 디렉토리를 Android Studio에서 오픈하세요.
+
+![ConstraintLayout (Chain, Barrier) 예](./screenshots/chain.png)
+
+ * 단계 1: `createVerticalChain`, `createHorizontalChain`를
+   이용해서 세 박스의 레퍼런스를 연결해봅시다.
+
+ * 단계 2: `createHorizontalChain`를 사용하고 `chainStyle`
+   키워드 파라미터를 추가합시다.
+   `ChainStyle.Packed`,`ChainStyle.Spread`,
+   `ChainStyle.SpreadInside`등을 지정해봅시다.
+
+ * 단계 3: 세 박스의 top을 parent.top에 연결하고 각각
+   다른 마진을 줍시다.
+
+ * 단계 4: `createBottomBarrier`로 배리어를 만듭시다.
+   이는 모든 박스들의 하단을 포함하는 배리어입니다.
+
+ * 단계 5: `Text` 하나 만들고 top을 박스 베리어로 지정합니다.
+
+ * 단계 6: 체이닝 방향이나 베리어 방향을 바꾸어 보며 다양하게 테스트해봅시다.
