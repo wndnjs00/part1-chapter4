@@ -36,16 +36,16 @@ class MainActivity : ComponentActivity() {
 fun CanvasEx() {
     Canvas(modifier = Modifier.size(20.dp)) {
 
-        // 단계 1: drawLine을 사용해봅시다. 파라미터로 색상, 시작(Offset)
-        // 끝(Offset 타입)을 받습니다.
+        // 단계 1: `drawLine`을 사용해봅시다. 파라미터로 색상, 시작(`Offset`)
+        // 끝(`Offset` 타입)을 받습니다.
 
-        // 단계 2: drawCircle을 사용해보세요. 색상, 반지름, 중앙(Offset)
+        // 단계 2: `drawCircle`을 사용해보세요. 색상, 반지름, 중앙(`Offset`)
 
         // 단계 3: 아래의 규칙으로 그려진 아이콘 `Icons.Filled.Send`를
-        // drawLine으로 변경해봅시다.
+        // `drawLine`으로 변경해봅시다.
 
         // ImageVector에서는 한붓 그리기 처럼 연속으로 그려집니다.
-        // moveTo로 2.01f, 21.0f로 이동한 후 거기에서
+        // `moveTo`로 2.01f, 21.0f로 이동한 후 거기에서
         // 23.0f, 12.0f로 선이 그어지는 식입니다.
 
         //        moveTo(2.01f, 21.0f)
