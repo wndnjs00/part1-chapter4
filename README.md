@@ -82,3 +82,31 @@ Part4 Chapter4의 예제와 실습을 모두 담고 있습니다.
 ![ConstraintLayout 활용 예](./screenshots/card2.png)
 
  * 단계 1: 아래의 Row 레이아웃을 ConstraintLayout로 바꾸어 봅시다.
+
+## Compose Canvas 활용 실습코드 (part4-chapter4-7)
+
+[part4-chapter4-7](part4-chapter4-7) 디렉토리를 Android Studio에서 오픈하세요.
+
+![ConstraintLayout 활용 예](./screenshots/canvas.png)
+
+
+ * 단계 1: `drawLine`을 사용해봅시다. 파라미터로 색상, 시작(`Offset`)
+    끝(`Offset` 타입)을 받습니다.
+
+ * 단계 2: `drawCircle`을 사용해보세요. 색상, 반지름, 중앙(`Offset`)
+
+ * 단계 3: 아래의 규칙으로 그려진 아이콘 `Icons.Filled.Send`를
+   `drawLine`으로 변경해봅시다.
+   ImageVector에서는 한붓 그리기 처럼 연속으로 그려집니다.
+   `moveTo`로 2.01f, 21.0f로 이동한 후 거기에서
+   23.0f, 12.0f로 선이 그어지는 식입니다.
+
+```kotlin
+moveTo(2.01f, 21.0f)
+lineTo(23.0f, 12.0f)
+lineTo(2.01f, 3.0f)
+lineTo(2.0f, 10.0f)
+lineToRelative(15.0f, 2.0f)
+lineToRelative(-15.0f, 2.0f)
+close()
+```
