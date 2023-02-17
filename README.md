@@ -74,3 +74,11 @@ Part4 Chapter4의 예제와 실습을 모두 담고 있습니다.
  * 단계 5: `Text` 하나 만들고 top을 박스 베리어로 지정합니다.
 
  * 단계 6: 체이닝 방향이나 베리어 방향을 바꾸어 보며 다양하게 테스트해봅시다.
+
+## Compose ConstraintLayout 활용 실습코드 (part4-chapter4-6)
+
+[part4-chapter4-6](part4-chapter4-6) 디렉토리를 Android Studio에서 오픈하세요.
+
+![ConstraintLayout 활용 예](./screenshots/card2.png)
+
+ * 단계 1: 아래의 Row 레이아웃을 ConstraintLayout로 바꾸어 봅시다.
