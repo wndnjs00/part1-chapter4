@@ -110,3 +110,15 @@ lineToRelative(15.0f, 2.0f)
 lineToRelative(-15.0f, 2.0f)
 close()
 ```
+
+## Compose Dialog 실습코드 (part4-chapter4-8)
+
+[part4-chapter4-8](part4-chapter4-8) 디렉토리를 Android Studio에서 오픈하세요.
+
+![Dialog 활용 예](./screenshots/dialog.png)
+
+ * 단계 1: `openDialog`를 이용해 다이얼로그를 끌 수 있게 합니다.
+ * 단계 2: "더하기" 버튼을 만들고 `counter`를 증가시킵니다. 다이얼로그도 끕니다.
+ * 단계 3: "취소" 버튼을 만들고 다이얼로그를 끕니다.
+ * 단계 4: 타이틀을 만듭니다. "더하기" 정도로 해봅시다.
+ * 단계 5: 다이얼로그에서 설명할 문구를 출력합니다.
