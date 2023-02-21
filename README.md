@@ -136,3 +136,16 @@ close()
  * 단계 3: 컬럼 안에 로우를 만들어 수평 방향으로 버튼을 배열합니다.
    버튼은 +1, -1, 취소로 구성하겠습니다.
    +1은 counter를 증가시키고 -1은 감소, 취소는 다이얼로그를 닫습니다.
+
+## Compose DropdownMenu 실습코드 (part4-chapter4-10)
+
+[part4-chapter4-10](part4-chapter4-10) 디렉토리를 Android Studio에서 오픈하세요.
+
+![DropdownMenu 활용 예](./screenshots/dropdown-menu.png)
+
+ * 단계 1: `DropdownMenu`를 만들고 `expanded`를 `expandDropDownMenu`로
+   등록합시다.
+   `onDismissRequest`에 대해서는 `expandDropDownMenu`를 `false`로 바꿉니다.
+
+ * 단계 2: 두개의 `DropdownMenuItem`을 등록합시다. `onClick`을 구현하고
+   내용물은 `Text`로 채워봅시다.
