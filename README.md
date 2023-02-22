@@ -172,3 +172,19 @@ close()
    `message`에 카운터를 출력합시다.
    `actionLabel`를 "닫기"로 지정합시다.
    `duration`에 `SnackbarDuration.Short`를 사용합니다.
+
+## Compose BottomAppBar 실습코드 (part4-chapter4-12)
+
+[part4-chapter4-12](part4-chapter4-12) 디렉토리를 Android Studio에서 오픈하세요.
+
+![BottomAppBar 활용 예](./screenshots/bottomappbar.png)
+
+ * 단계 1: `Scaffold`에 `scaffoldState`를 설정합니다.
+
+ * 단계 2: `bottomBar` 파라미터에 `BottomAppBar`를 넣읍시다.
+  내용은 텍스트와 버튼을 넣어 봅시다. 버튼에는 `snackBar`를
+  연동해 메시지를 출력합니다.
+
+ * 단계 3: 더하기와 빼기 버튼을 추가로 만들고 `MutableState`
+  만듭시다. `Scaffold`의 `content`에 `Text`를 넣어 카운터를 출력하게
+  합시다.
