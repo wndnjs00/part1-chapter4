@@ -188,3 +188,19 @@ close()
  * 단계 3: 더하기와 빼기 버튼을 추가로 만들고 `MutableState`
   만듭시다. `Scaffold`의 `content`에 `Text`를 넣어 카운터를 출력하게
   합시다.
+
+## Compose State와 State Hoisting 실습코드 (part4-chapter4-13)
+
+[part4-chapter4-13](part4-chapter4-13) 디렉토리를 Android Studio에서 오픈하세요.
+
+![State와 State Hoisting 활용 예](./screenshots/state.png)
+
+
+ * 단계 1: remember를 이용해 상태를 만들고 평 값을 입력하면
+  제곱미터가 출력되도록 화면을 구성하시오.
+  평을 제곱미터로 바꾸기 위해서는 3.306을 곱하면 됩니다.
+  
+ * 단계 2: `Composable` 함수를 만들고 `Column`의 항목들을 옮기세요.
+  단 상태는 옮기지 말아야 합니다.
+  파라미터는 아래와 같이 구성합니다.
+  `pyeong: String, squareMeter: String, onPyeongChange: (String) -> Unit`
