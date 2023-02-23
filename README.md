@@ -228,3 +228,26 @@ close()
   `exit`도 적절한 값을 설정해봅시다.
 
  * 단계 4: `backgroundColor`를 `animateColorAsState`로 변경하세요.
+
+## Compose State와 Animation (2) 실습코드 (part4-chapter4-15)
+
+[part4-chapter4-15](part4-chapter4-15) 디렉토리를 Android Studio에서 오픈하세요.
+
+![Animation (2) 활용 예](./screenshots/animation2.png)
+
+ * 단계 1: `updateTransition` 수행하고 `targetState`를 `isDarkMode`로
+  설정합니다. `transition`으로 리턴을 받습니다.
+
+ * 단계 2: `transition`에 대해 `animateColor`를 호출해 `backgroundColor`를 받습니다.
+  배경색상을 만듭시다. false일 때 하얀 배경, true일 때 검은 배경.
+
+ * 단계 3: 글자 색상을 만듭시다.
+
+ * 단계 4: `animateFloat`를 호출해서 알파 값을 만듭시다.
+
+ * 단계 5: 컬럼에 배경과 알파를 적용합시다.
+
+ * 단계 6: 라디오 버튼에 글자 색을 적용합시다.
+
+ * 단계 7: Crossfade를 이용해 `isDarkMode`가 참일 경우
+  `Row`로 항목을 표현하고 거짓일 경우 `Column`으로 표현해봅시다.
