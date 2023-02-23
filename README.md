@@ -204,3 +204,27 @@ close()
   단 상태는 옮기지 말아야 합니다.
   파라미터는 아래와 같이 구성합니다.
   `pyeong: String, squareMeter: String, onPyeongChange: (String) -> Unit`
+
+## Compose State와 Animation (1) 실습코드 (part4-chapter4-14)
+
+[part4-chapter4-14](part4-chapter4-14) 디렉토리를 Android Studio에서 오픈하세요.
+
+![Animation (1) 활용 예](./screenshots/animation.png)
+
+ * 단계 1: `Text`를 `AnimatedVisibility`로 감싸고 `visible`을
+  `helloWorldVisible`로 지정해봅시다.
+
+ * 단계 2: `enter` 파라미터를 바꾸어봅시다.
+
+  예:
+  ```kotlin
+  expandHorizontally()
+  scaleIn()
+  slideInHorizontally()
+  fadeIn()
+  ```
+
+ * 단계 3: `enter` 값을 덧셈으로 결합해봅시다.
+  `exit`도 적절한 값을 설정해봅시다.
+
+ * 단계 4: `backgroundColor`를 `animateColorAsState`로 변경하세요.
