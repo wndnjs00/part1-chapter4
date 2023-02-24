@@ -251,3 +251,21 @@ close()
 
  * 단계 7: Crossfade를 이용해 `isDarkMode`가 참일 경우
   `Row`로 항목을 표현하고 거짓일 경우 `Column`으로 표현해봅시다.
+
+## Compose 부수 효과 실습코드 (part4-chapter4-17)
+
+[part4-chapter4-17](part4-chapter4-17) 디렉토리를 Android Studio에서 오픈하세요.
+
+ * 단계 1: `LaunchedEffect`을 이용해서 스낵바를 이용해 봅시다.
+  파라미터에는 `scaffoldState.snackbarHostState`를 전달합시다.
+  "헬로 컴포즈"라고 출력합시다.
+  `LaunchedEffect`는 `CouroutineScope`를 만들기 때문에 스코프를 별도로
+  만들 필요는 없습니다.
+
+
+ * 단계 2: `DisposableEffect`를 호출하고 파리미터로 `lifecycleOwner`를
+  전달합니다.
+  `LifecycleEventObserver`를 상속받고 두 상태에 대해 로그를 남깁니다.
+  `Lifecycle.Event.ON_START`, `Lifecycle.Event.ON_STOP`
+  블록 내에서 `lifecycleOwner.lifecycle.addObserver`로 옵저버를 추가하고
+  onDispose에서 옵저버를 제거합니다.
