@@ -269,3 +269,22 @@ close()
   `Lifecycle.Event.ON_START`, `Lifecycle.Event.ON_STOP`
   블록 내에서 `lifecycleOwner.lifecycle.addObserver`로 옵저버를 추가하고
   onDispose에서 옵저버를 제거합니다.
+
+## Compose State와 ToDo 실습코드 (part4-chapter4-18)
+
+[part4-chapter4-18](part4-chapter4-18) 디렉토리를 Android Studio에서 오픈하세요.
+
+![ToDo 실습 예](./screenshots/todo.png)
+
+ * 단계 1: `Row`를 만들고 `toDoData.text`를 출력하고
+  완료를 체크하는 체크박스, 수정 버튼, 삭제 버튼을 만드세요.
+
+ * 단계 2: `Crossfade`를 통해 `isEditing`을 따라 다른
+  UI를 보여줍니다. `OutlinedTextField`와 `Button을
+  넣어봅시다.
+
+ * 단계 3: `LazyColumn`으로 `toDoList`를 표시합시다.
+  `key`를 `toDoData`의 `key`를 사용합니다.
+
+ * 단계 4: `onSubmit`, `onEdit`, `onToggle`, `onDelete`를
+  만들어 `ToDo`에 연결합니다.
