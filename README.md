@@ -1,12 +1,12 @@
-# Part4 Chapter4
+# part1 Chapter4
 
-Part4 Chapter4의 예제와 실습을 모두 담고 있습니다.
+part1 Chapter4의 예제와 실습을 모두 담고 있습니다.
 
 [최종본](../../tree/final)과 비교해보세요.
 
-## Compose ConstraintLayout 실습코드 (part4-chapter4-3)
+## Compose ConstraintLayout 실습코드 (part1-chapter4-3)
 
-[part4-chapter4-3](part4-chapter4-3) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-3](part1-chapter4-3) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![ConstraintLayout 예](./screenshots/constraint.png)
 
@@ -33,9 +33,9 @@ Part4 Chapter4의 예제와 실습을 모두 담고 있습니다.
  * 단계 8: 옐로 박스를 마젠타 박스 오른쪽 대각선 아래에 위치해봅시다.
     linkTo를 쓰고 인자로 parent 대신 그린 박스의 레퍼런스를 사용합시다.
 
-## Compose ConstraintLayout (ConstraintSet) 실습코드 (part4-chapter4-4)
+## Compose ConstraintLayout (ConstraintSet) 실습코드 (part1-chapter4-4)
 
-[part4-chapter4-4](part4-chapter4-4) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-4](part1-chapter4-4) 디렉토리를 Android Studio에서 오픈하세요.
 
  * 단계 1: createRefFor로 레드, 마젠타, 그린, 옐로 박스를 위한 레퍼런스를 만듭니다.
     파라미터 id로 레퍼런스의 이름을 적어 줍시다. eg. redBox
@@ -51,9 +51,9 @@ Part4 Chapter4의 예제와 실습을 모두 담고 있습니다.
 
  * 단계 5: ConstraintLayout의 첫 인자로 ConstraintSet을 전달합니다.
 
-## Compose ConstraintLayout (Chain, Barrier) 실습코드 (part4-chapter4-5)
+## Compose ConstraintLayout (Chain, Barrier) 실습코드 (part1-chapter4-5)
 
-[part4-chapter4-5](part4-chapter4-5) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-5](part1-chapter4-5) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![ConstraintLayout (Chain, Barrier) 예](./screenshots/chain.png)
 
@@ -75,17 +75,17 @@ Part4 Chapter4의 예제와 실습을 모두 담고 있습니다.
 
  * 단계 6: 체이닝 방향이나 베리어 방향을 바꾸어 보며 다양하게 테스트해봅시다.
 
-## Compose ConstraintLayout 활용 실습코드 (part4-chapter4-6)
+## Compose ConstraintLayout 활용 실습코드 (part1-chapter4-6)
 
-[part4-chapter4-6](part4-chapter4-6) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-6](part1-chapter4-6) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![ConstraintLayout 활용 예](./screenshots/card2.png)
 
  * 단계 1: 아래의 Row 레이아웃을 ConstraintLayout로 바꾸어 봅시다.
 
-## Compose Canvas 활용 실습코드 (part4-chapter4-7)
+## Compose Canvas 활용 실습코드 (part1-chapter4-7)
 
-[part4-chapter4-7](part4-chapter4-7) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-7](part1-chapter4-7) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![ConstraintLayout 활용 예](./screenshots/canvas.png)
 
@@ -111,9 +111,9 @@ lineToRelative(-15.0f, 2.0f)
 close()
 ```
 
-## Compose Dialog 실습코드 (part4-chapter4-8)
+## Compose Dialog 실습코드 (part1-chapter4-8)
 
-[part4-chapter4-8](part4-chapter4-8) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-8](part1-chapter4-8) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![Dialog 활용 예](./screenshots/dialog.png)
 
@@ -123,9 +123,9 @@ close()
  * 단계 4: 타이틀을 만듭니다. "더하기" 정도로 해봅시다.
  * 단계 5: 다이얼로그에서 설명할 문구를 출력합니다.
 
-## Compose Custom Dialog 실습코드 (part4-chapter4-9)
+## Compose Custom Dialog 실습코드 (part1-chapter4-9)
 
-[part4-chapter4-9](part4-chapter4-9) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-9](part1-chapter4-9) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![Custom Dialog 활용 예](./screenshots/custom-dialog.png)
 
@@ -137,9 +137,9 @@ close()
    버튼은 +1, -1, 취소로 구성하겠습니다.
    +1은 counter를 증가시키고 -1은 감소, 취소는 다이얼로그를 닫습니다.
 
-## Compose DropdownMenu 실습코드 (part4-chapter4-10)
+## Compose DropdownMenu 실습코드 (part1-chapter4-10)
 
-[part4-chapter4-10](part4-chapter4-10) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-10](part1-chapter4-10) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![DropdownMenu 활용 예](./screenshots/dropdown-menu.png)
 
@@ -150,9 +150,9 @@ close()
  * 단계 2: 두개의 `DropdownMenuItem`을 등록합시다. `onClick`을 구현하고
    내용물은 `Text`로 채워봅시다.
 
-## Compose Snackbar 실습코드 (part4-chapter4-11)
+## Compose Snackbar 실습코드 (part1-chapter4-11)
 
-[part4-chapter4-11](part4-chapter4-11) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-11](part1-chapter4-11) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![Snackbar 활용 예](./screenshots/snackbar.png)
 
@@ -173,9 +173,9 @@ close()
    `actionLabel`를 "닫기"로 지정합시다.
    `duration`에 `SnackbarDuration.Short`를 사용합니다.
 
-## Compose BottomAppBar 실습코드 (part4-chapter4-12)
+## Compose BottomAppBar 실습코드 (part1-chapter4-12)
 
-[part4-chapter4-12](part4-chapter4-12) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-12](part1-chapter4-12) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![BottomAppBar 활용 예](./screenshots/bottomappbar.png)
 
@@ -189,9 +189,9 @@ close()
   만듭시다. `Scaffold`의 `content`에 `Text`를 넣어 카운터를 출력하게
   합시다.
 
-## Compose State와 State Hoisting 실습코드 (part4-chapter4-13)
+## Compose State와 State Hoisting 실습코드 (part1-chapter4-13)
 
-[part4-chapter4-13](part4-chapter4-13) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-13](part1-chapter4-13) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![State와 State Hoisting 활용 예](./screenshots/state.png)
 
@@ -205,9 +205,9 @@ close()
   파라미터는 아래와 같이 구성합니다.
   `pyeong: String, squareMeter: String, onPyeongChange: (String) -> Unit`
 
-## Compose State와 Animation (1) 실습코드 (part4-chapter4-14)
+## Compose State와 Animation (1) 실습코드 (part1-chapter4-14)
 
-[part4-chapter4-14](part4-chapter4-14) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-14](part1-chapter4-14) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![Animation (1) 활용 예](./screenshots/animation.png)
 
@@ -229,9 +229,9 @@ close()
 
  * 단계 4: `backgroundColor`를 `animateColorAsState`로 변경하세요.
 
-## Compose State와 Animation (2) 실습코드 (part4-chapter4-15)
+## Compose State와 Animation (2) 실습코드 (part1-chapter4-15)
 
-[part4-chapter4-15](part4-chapter4-15) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-15](part1-chapter4-15) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![Animation (2) 활용 예](./screenshots/animation2.png)
 
@@ -252,9 +252,9 @@ close()
  * 단계 7: Crossfade를 이용해 `isDarkMode`가 참일 경우
   `Row`로 항목을 표현하고 거짓일 경우 `Column`으로 표현해봅시다.
 
-## Compose 부수 효과 실습코드 (part4-chapter4-17)
+## Compose 부수 효과 실습코드 (part1-chapter4-17)
 
-[part4-chapter4-17](part4-chapter4-17) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-17](part1-chapter4-17) 디렉토리를 Android Studio에서 오픈하세요.
 
  * 단계 1: `LaunchedEffect`을 이용해서 스낵바를 이용해 봅시다.
   파라미터에는 `scaffoldState.snackbarHostState`를 전달합시다.
@@ -270,9 +270,9 @@ close()
   블록 내에서 `lifecycleOwner.lifecycle.addObserver`로 옵저버를 추가하고
   onDispose에서 옵저버를 제거합니다.
 
-## Compose State와 ToDo 실습코드 (part4-chapter4-18)
+## Compose State와 ToDo 실습코드 (part1-chapter4-18)
 
-[part4-chapter4-18](part4-chapter4-18) 디렉토리를 Android Studio에서 오픈하세요.
+[part1-chapter4-18](part1-chapter4-18) 디렉토리를 Android Studio에서 오픈하세요.
 
 ![ToDo 실습 예](./screenshots/todo.png)
 
