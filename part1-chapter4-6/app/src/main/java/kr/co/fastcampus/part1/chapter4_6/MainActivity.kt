@@ -53,8 +53,10 @@ fun CardEx(cardData: CardData) {
         modifier = Modifier.padding(4.dp),
     ) {
         // 단계 1: 아래의 Row 레이아웃을 ConstraintLayout로 바꾸어 봅시다.
-        ConstraintLayout(modifier = Modifier.fillMaxWidth()) {
-        }
+        // ConstraintLayout을 이렇게 설정하면, 실제 앱 화면처럼 크게 보임
+        // 근데, 이걸 작성하면, 전체사이즈를 다 차지해버려서 의도한대로 카드뷰가 3개가 나오지 않음
+//        ConstraintLayout(modifier = Modifier.fillMaxWidth()) {
+//        }
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -63,7 +65,7 @@ fun CardEx(cardData: CardData) {
             AsyncImage(
                 model = cardData.imageUri,
                 contentDescription = cardData.imageDescription,
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Crop, //이걸 작성하지 않으면,이미지가 잘릴수있음
                 placeholder = ColorPainter(color = placeHolderColor),
                 modifier = Modifier
                     .clip(CircleShape)
@@ -72,6 +74,7 @@ fun CardEx(cardData: CardData) {
             Spacer(modifier = Modifier.size(8.dp))
             Column {
                 Text(text = cardData.author)
+                Spacer(modifier = Modifier.size(4.dp))
                 Text(text = cardData.description)
             }
         }
