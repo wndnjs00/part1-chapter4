@@ -26,20 +26,60 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CheckBoxEx() {
-    var checked by remember { mutableStateOf(false) }
+    // mutableStateOf로 상태를 체크하고, remember를 사용해줘야함
+    // composeable은 그리다가 새로 그려지면, 언제든 다시 그려질수있고, 상태가 날아갈수도 있기 때문에, remember를 사용해줘야함
+    // mutableStateOf는 value와 property로 구성!
+//    var checked by remember { mutableStateOf(false) }
+
+    //스탭 1
+//    Row(verticalAlignment = Alignment.CenterVertically) {
+//        Checkbox(
+//            checked = checked,
+//            onCheckedChange = {
+//                checked = !checked
+//            }
+//        )
+//
+//        Text(
+//            text = "프로그래머입니까?"
+//        )
+//    }
+
+
+    //스탭 2
+//    var checked by remember { mutableStateOf(false) }
+//
+//    Row(verticalAlignment = Alignment.CenterVertically) {
+//        Checkbox(
+//            checked = checked,
+//            onCheckedChange = {
+//                checked = it
+//            }
+//        )
+//
+//        Text(
+//            text = "프로그래머입니까?",
+//            modifier = Modifier.clickable {
+//                checked = !checked
+//            }
+//        )
+//    }
+
+    //스탭 3 : destruction으로 상태받아서 사용하기
+    var (checked, setChecked) = remember { mutableStateOf(false) }  // checked는 getter, setChecked는 setter에 해당하는값
 
     Row(verticalAlignment = Alignment.CenterVertically) {
         Checkbox(
             checked = checked,
             onCheckedChange = {
-                checked = it
+                setChecked(!checked) // setChecked(it) 도 같은결과  //onCheckedChange = setChecked 도 같은결과
             }
         )
 
         Text(
             text = "프로그래머입니까?",
             modifier = Modifier.clickable {
-                checked = !checked
+                setChecked(!checked)
             }
         )
     }
