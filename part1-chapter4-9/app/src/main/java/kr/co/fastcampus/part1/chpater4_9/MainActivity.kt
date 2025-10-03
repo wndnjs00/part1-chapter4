@@ -52,9 +52,36 @@ fun CustomDialog() {
     if (openDialog) {
         Dialog(onDismissRequest = {
             // 단계 1: 디스미스 처리를 합니다.
+            // 다이얼로그 바깥을 눌렀을때 처리
+            openDialog = false
         }) {
+            // Surface로 content 전체를 묶어서, 기본적으로 Dialog에 나오는 검정 그림자? 안나오도록
             Surface {
                 // 단계 2: 컬럼을 만들고 설명을 적어봅시다.
+                Column(modifier = Modifier.padding(8.dp)) {
+                    Text("버튼을 클릭해주세요. \n * +1을 누르면 값이 증가됩니다\n * -1을 누르면 값이 감소됩니다.")
+
+                    Row {
+                        Button(onClick = {
+                            openDialog = false
+                        }) {
+                            Text("취소")
+                        }
+                        Button(onClick = {
+                            openDialog = false
+                            counter++
+                        }) {
+                            Text("+1")
+                        }
+                        Button(onClick = {
+                            openDialog = false
+                            counter--
+                        }) {
+                            Text("-1")
+                        }
+                    }
+
+                }
 
                 // 단계 3: 컬럼 안에 로우를 만들어 수평 방향으로 버튼을 배열합니다.
                 // 버튼은 +1, -1, 취소로 구성하겠습니다.
