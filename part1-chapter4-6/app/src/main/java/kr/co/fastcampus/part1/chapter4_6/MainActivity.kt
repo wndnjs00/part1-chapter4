@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import coil.compose.AsyncImage
@@ -53,31 +54,69 @@ fun CardEx(cardData: CardData) {
         modifier = Modifier.padding(4.dp),
     ) {
         // 단계 1: 아래의 Row 레이아웃을 ConstraintLayout로 바꾸어 봅시다.
-        // ConstraintLayout을 이렇게 설정하면, 실제 앱 화면처럼 크게 보임
-        // 근데, 이걸 작성하면, 전체사이즈를 다 차지해버려서 의도한대로 카드뷰가 3개가 나오지 않음
-//        ConstraintLayout(modifier = Modifier.fillMaxWidth()) {
-//        }
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(8.dp)
+        ConstraintLayout(modifier = Modifier.fillMaxWidth()
         ) {
+            val (profileImage, author, description) = createRefs()
+
             AsyncImage(
                 model = cardData.imageUri,
                 contentDescription = cardData.imageDescription,
-                contentScale = ContentScale.Crop, //이걸 작성하지 않으면,이미지가 잘릴수있음
+                contentScale = ContentScale.Crop,
                 placeholder = ColorPainter(color = placeHolderColor),
                 modifier = Modifier
                     .clip(CircleShape)
                     .size(40.dp)
+                    .constrainAs(profileImage) {
+//                        centerVerticallyTo(parent)
+                        linkTo(parent.top, parent.bottom)
+                        start.linkTo(parent.start, margin = 8.dp)
+                    }
             )
-            Spacer(modifier = Modifier.size(8.dp))
-            Column {
-                Text(text = cardData.author)
-                Spacer(modifier = Modifier.size(4.dp))
-                Text(text = cardData.description)
+            
+            Text(
+                text = cardData.author,
+                modifier = Modifier.constrainAs(author){
+                    linkTo(profileImage.end, parent.end, startMargin = 8.dp, endMargin = 8.dp)
+                    width = Dimension.fillToConstraints //제약에 맞춰라
+                }
+            )
+
+            Text(
+                text = cardData.description,
+                modifier = Modifier.constrainAs(description) {
+                    linkTo(profileImage.end, parent.end, startMargin = 8.dp, endMargin = 8.dp)
+                    width = Dimension.fillToConstraints //제약에 맞춰라
+                }
+            )
+
+            // Chain을 만들면, constrain을 만들어서 margin을 설정해줘야함
+            val chain = createVerticalChain(author, description, chainStyle = ChainStyle.Packed)
+
+            constrain(chain){
+                top.linkTo(parent.top, margin = 8.dp)
+                bottom.linkTo(parent.bottom, margin = 8.dp)
             }
         }
+
+//        Row(
+//            verticalAlignment = Alignment.CenterVertically,
+//            modifier = Modifier.padding(8.dp)
+//        ) {
+//            AsyncImage(
+//                model = cardData.imageUri,
+//                contentDescription = cardData.imageDescription,
+//                contentScale = ContentScale.Crop,
+//                placeholder = ColorPainter(color = placeHolderColor),
+//                modifier = Modifier
+//                    .clip(CircleShape)
+//                    .size(40.dp)
+//            )
+//            Spacer(modifier = Modifier.size(8.dp))
+//            Column {
+//                Text(text = cardData.author)
+//                Text(text = cardData.description)
+//            }
+//        }
     }
 }
 
