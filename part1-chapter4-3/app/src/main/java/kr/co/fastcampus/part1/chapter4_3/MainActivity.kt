@@ -36,9 +36,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ConstraintLayoutEx() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
-        // 단계 2: createRefs()를 이용해서 아래 박스들의 레퍼런스를 가져옵시다.
+        // 단계 2: createRefs()를 이용해서 아래 박스들의 레퍼런스를 가져옵시다. // createRefs는 ConstraintLayout에 기본적으로 내장되어있는 함수
         // createRefs는 여러개의 레퍼런스를 리턴하니 destruction으로 분해합시다.
         // red, magenta, green, yellow 박스가 있습니다.
+        val (redBox, magentaBox, greenBox, yellowBox) = createRefs()
 
         Box(
             // 단계 3: constraintsAs 모디파이어를 추가하고 레퍼런스를 전달합시다.
@@ -51,20 +52,46 @@ fun ConstraintLayoutEx() {
             modifier = Modifier
                 .size(40.dp)
                 .background(Color.Red)
+                .constrainAs(redBox){   //constrainAs는 어디에 붙을지 정해주는거
+                    bottom.linkTo(parent.bottom, margin = 8.dp)
+                    end.linkTo(parent.end)
+                }
         )
         Box(
             // 단계 5: 마젠타 박스를 parent의 start와 end에 연결합시다.
+            // 이렇게 constrainAs를 설정하면,양쪽에서 잡아당기는게 되기때문에, 가운데에 위치
             modifier = Modifier
                 .size(40.dp)
                 .background(Color.Magenta)
+                .constrainAs(magentaBox){
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
         )
         Box(
             // 단계 6: 그린 박스를 linkTo를 이용해서 정 가운데로 연결해봅시다.
-
-            // 단계 7: 앵커 메서드 linkTo 대신에 centerTo 함수를 사용해봅시다.
             modifier = Modifier
                 .size(40.dp)
                 .background(Color.Green)
+                .constrainAs(greenBox){
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                    top.linkTo(parent.top)
+                    bottom.linkTo(parent.bottom)
+                }
+        )
+
+        Box(
+            // 단계 7: 앵커 메서드 linkTo 대신에 centerTo 함수를 사용해봅시다.
+            // centerTo함수를 통해, 한방에 정가운데에 정렬할 수 있음
+            modifier = Modifier
+                .size(40.dp)
+                .background(Color.Green)
+                .constrainAs(greenBox){
+                    centerTo(parent)
+//                    centerVerticallyTo(parent)
+//                    centerHorizontallyTo(parent)
+                }
         )
 
         Box(
@@ -73,6 +100,10 @@ fun ConstraintLayoutEx() {
             modifier = Modifier
                 .size(40.dp)
                 .background(Color.Yellow)
+                .constrainAs(yellowBox){
+                    start.linkTo(magentaBox.end) //yellowBox의 왼쪽을, magentaBox의 오른쪽에 붙이겠다
+                    top.linkTo(magentaBox.bottom) //yellowBox의 top을, magentaBox의 bottom에 붙이겠다
+                }
         )
     }
 }
