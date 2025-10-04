@@ -33,8 +33,57 @@ class MainActivity : ComponentActivity() {
 fun BottomAppBarEx() {
     val scaffoldState = rememberScaffoldState()
     val coroutineScope = rememberCoroutineScope()
+    var counter by remember {
+        mutableStateOf(0)
+    }
 
     // 단계 1: `Scaffold`에 `scaffoldState`를 설정합니다.
+    Scaffold (
+        scaffoldState = scaffoldState,
+        bottomBar = {
+            BottomAppBar(){
+                Text("헬로")
+                Button(onClick = {
+                    coroutineScope.launch {
+                        // onClick내에서는 coroutineScope.launch를 바로 호출할 수 있음!!
+                        // showSnackbar는 다 기본값으로 설정되어있어서, message값만 설정하면됨
+                        // coroutineScope.launch(코루틴 스코프)를 쓰는 이유는, showSnackbar가 suspend fun이기 때문
+                        scaffoldState.snackbarHostState.showSnackbar("안녕하세요")
+                    }
+                }) {
+                    Text("인사하기")
+                }
+                Button(
+                    onClick = {
+                        counter++
+                    }) {
+                    Text("더하기")
+                }
+                Button(
+                    onClick = {
+                        counter--
+                    }) {
+                    Text("빼가")
+                }
+            }
+        }
+    ) {
+        // onClick밖에서 coroutineScope.launch를 호출하고 싶으면, LaunchEffect를 사용해야함(효과 API)
+        // LaunchEffect는 Key를 작성해줘야함
+        // Key가 바뀌기 전까지는 다시 호출하지 않는다. (scafflodState.snackbarHostState가 바뀌기 전까지는 한번만 호출해라)
+//        LaunchedEffect(scaffoldState.snackbarHostState) {
+//            coroutineScope.launch {
+//                scaffoldState.snackbarHostState.showSnackbar("안녕하세요")
+//            }
+//        }
+
+        Box(modifier = Modifier.fillMaxSize()){
+            Text(
+                text = "카운터는 ${counter}회입니다",
+                modifier = Modifier.align(Alignment.Center)
+            )
+        }
+    }
 
     // 단계 2: `bottomBar` 파라미터에 `BottomAppBar`를 넣읍시다.
     // 내용은 텍스트와 버튼을 넣어 봅시다. 버튼에는 `snackBar`를
