@@ -45,41 +45,105 @@ fun Animation2Ex() {
 
     // 단계 1: `updateTransition` 수행하고 `targetState`를 `isDarkMode`로
     // 설정합니다. `transition`으로 리턴을 받습니다.
+    // 이전에 썼던것처럼 animateColorAsState()등을 써서해도되는데, 그렇게하면 관리가 안되기 때문에, updateTransition을 사용해서 transition으로 상태를 다 묶어서 사용하는거!!
+    val transition = updateTransition(targetState = isDarkMode, label = "다크모드 트랜지션")
 
     // 단계 2: `transition`에 대해 `animateColor`를 호출해 `backgroundColor`를 받습니다.
     // 배경색상을 만듭시다. false일 때 하얀 배경, true일 때 검은 배경.
+    val backgroundColor by transition.animateColor(label = "다크모드 배경색상 애니메이션") { state ->
+        when (state) {
+            false -> Color.White
+            true -> Color.Black
+        }
+    }
 
     // 단계 3: 글자 색상을 만듭시다.
+    val textColor by transition.animateColor(label = "다크모드 글지색상 애니메이션") { state ->
+        when (state) {
+            false -> Color.Black
+            true -> Color.White
+        }
+    }
 
     // 단계 4: `animateFloat`를 호출해서 알파 값을 만듭시다.
+    val alpha by transition.animateFloat (label = "다크모드 알파 애니메이션") { state ->
+        when (state) {
+            false -> 0.7f
+            true -> 1f
+        }
+    }
 
     // 단계 5: 컬럼에 배경과 알파를 적용합시다.
-    Column {
+    Column(
+        modifier = Modifier.background(backgroundColor).alpha(alpha)
+    ) {
         // 단계 6: 라디오 버튼에 글자 색을 적용합시다.
-        RadioButtonWithText(text = "일반 모드", selected = !isDarkMode) {
-            isDarkMode = false
+        RadioButtonWithText(text = "일반 모드", color = textColor, selected = !isDarkMode) {
+            isDarkMode = false  // RadioButtonWithText에서 마지막에 onClick: () -> Unit로 설정했기때문에, 후행람다로 클릭시 동작을 이렇게 설정가능
         }
-        RadioButtonWithText(text = "다크 모드", selected = isDarkMode) {
+        RadioButtonWithText(text = "다크 모드", color = textColor, selected = isDarkMode) {
             isDarkMode = true
         }
 
         // 단계 7: Crossfade를 이용해 `isDarkMode`가 참일 경우
         // `Row`로 항목을 표현하고 거짓일 경우 `Column`으로 표현해봅시다.
-        Row {
-            Box(modifier = Modifier
-                .background(Color.Red)
-                .size(20.dp)) {
-                Text("1")
-            }
-            Box(modifier = Modifier
-                .background(Color.Magenta)
-                .size(20.dp)) {
-                Text("2")
-            }
-            Box(modifier = Modifier
-                .background(Color.Blue)
-                .size(20.dp)) {
-                Text("3")
+//        Row {
+//            Box(modifier = Modifier
+//                .background(Color.Red)
+//                .size(20.dp)) {
+//                Text("1")
+//            }
+//            Box(modifier = Modifier
+//                .background(Color.Magenta)
+//                .size(20.dp)) {
+//                Text("2")
+//            }
+//            Box(modifier = Modifier
+//                .background(Color.Blue)
+//                .size(20.dp)) {
+//                Text("3")
+//            }
+//        }
+        Crossfade(targetState = isDarkMode) { state ->
+            when(state){
+                false -> {
+                    Column  {
+                        Box(modifier = Modifier
+                            .background(Color.Red)
+                            .size(20.dp)) {
+                            Text("1")
+                        }
+                        Box(modifier = Modifier
+                            .background(Color.Magenta)
+                            .size(20.dp)) {
+                            Text("2")
+                        }
+                        Box(modifier = Modifier
+                            .background(Color.Blue)
+                            .size(20.dp)) {
+                            Text("3")
+                        }
+                    }
+                }
+                true -> {
+                    Row {
+                        Box(modifier = Modifier
+                            .background(Color.Red)
+                            .size(20.dp)) {
+                            Text("1")
+                        }
+                        Box(modifier = Modifier
+                            .background(Color.Magenta)
+                            .size(20.dp)) {
+                            Text("2")
+                        }
+                        Box(modifier = Modifier
+                            .background(Color.Blue)
+                            .size(20.dp)) {
+                            Text("3")
+                        }
+                    }
+                }
             }
         }
     }
@@ -93,6 +157,7 @@ fun DefaultPreview() {
     }
 }
 
+// 라디오버튼 하나만 프리뷰로 보고싶어서, 임의의 데이터를 넣었음
 @Preview(showBackground = true)
 @Composable
 fun RadioButtonWithTextPreview() {
